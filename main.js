@@ -106,7 +106,7 @@ methods.set('/posts.post', async ({ response, searchParams, db }) => {
   const columns = result.getColumns();
   const posts = data.map(map(columns));
 
-  
+
 
   const post = posts.filter(o => !o.removed).find(o => o.content === content);
   if (post === undefined) {
@@ -186,7 +186,7 @@ methods.set('/posts.delete', async ({ response, searchParams, db }) => {
     .bind('id', id)
     .execute();
 
-    const result = await table.select(['id', 'content', 'likes', 'created'])
+  const result = await table.select(['id', 'content', 'likes', 'created'])
     .orderBy('id DESC')
     .execute();
 
